@@ -14,6 +14,7 @@ export class PlayEngine {
     this.animations = new Map();
     this.timers = new Map();
     this.buttons = new Set();
+    this.commonButtonsInitialized = false;
     this.trace = [];
     this.warnings = new Set();
     this.queue = [];
@@ -201,9 +202,13 @@ export class PlayEngine {
     if(!this.banks.has(id))throw new Error(`Missing bank ${id}`);
     this.active=id===99?[99]:[99,id];this.bank=this.banks.get(id);
     this.loadedBundles=[];
-    this.buttons.clear();this.stopAnimation();this.timers.clear();this.sprites.clear();
+    const commonButtons=new Set(Object.keys(this.banks.get(99).resources.BUTN||{}).map(rid=>Number(rid)&65535));
+    const retainCommon=this.commonButtonsInitialized&&id!==99;
+    this.buttons=new Set(retainCommon?[...this.buttons].filter(button=>commonButtons.has(button)):[]);
+    this.stopAnimation();this.timers.clear();this.sprites.clear();
     this.textSprites.clear();this.surfaces.clear();
-    for(const bankId of this.active)for(const rid of Object.keys(this.banks.get(bankId).resources.BUTN||{})){const bytes=this.resource('BUTN',Number(rid));if(viewOf(bytes).getUint16(0,true)&32768)this.buttons.add(Number(rid)&65535);}
+    for(const bankId of this.active){if(bankId===99&&retainCommon)continue;for(const rid of Object.keys(this.banks.get(bankId).resources.BUTN||{})){const bytes=this.resource('BUTN',Number(rid));if(viewOf(bytes).getUint16(0,true)&32768)this.buttons.add(Number(rid)&65535);}}
+    this.commonButtonsInitialized=true;
     for(const rid of Object.keys(this.bank.resources.VARI||{})){const data=viewOf(this.resource('VARI',Number(rid)));if(data.getUint32(4,true)===8)for(let i=0;i<data.getUint32(8,true);i++){const address=data.getUint32(12,true)+4*i;if(!this.vm.read(address))this.vm.write(address,this.vm.string());}}
     return this.event(3,[id]);
   }
@@ -211,10 +216,12 @@ export class PlayEngine {
     this.tickCount++;
     this.event(9,[]);
     for(const [id,anim]of [...this.animations]) {
+      if(this.animations.get(id)!==anim)continue;
       if(anim.paused)continue;
       if(anim.remaining<=1){this.animations.delete(id);for(const channel of anim.channels)if(channel.type===2&&channel.image)this.stopSound?.(channel.image);this.event(2,[id,Number(Boolean(anim.parent))]);continue;}
       anim.remaining--;
       for(const channel of anim.channels) {
+        if(this.animations.get(id)!==anim)break;
         if(channel.wait){channel.wait--;continue;}
         if(anim.pc+2>anim.bytes.length)throw new Error(`Animation ${id} stream exhausted: frame remaining ${anim.remaining}, channel ${channel.type}, offset ${anim.pc}/${anim.bytes.length}`);
         const token=anim.data.getUint16(anim.pc,true);anim.pc+=2;
@@ -235,7 +242,7 @@ export class PlayEngine {
         else throw new Error(`Unsupported animation channel ${channel.type}`);
       }
     }
-    for(const [id,timer]of [...this.timers])if(!timer.paused&&this.tickCount>=timer.next) {
+    for(const [id,timer]of [...this.timers])if(this.timers.get(id)===timer&&!timer.paused&&this.tickCount>=timer.next) {
       if(timer.once)this.timers.delete(id);else timer.next+=timer.interval;
       this.vm.call(timer.script,[id]);
     }

@@ -1,9 +1,34 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {PlayVM} from '../web/vm.js';
-import {PlayEngine} from '../web/engine.js';
+import {PlayEngine,viewOf} from '../web/engine.js';
 import {Profiles} from '../web/profiles.js';
 import {decodeADP} from '../web/audio.js';
+
+test('activity transitions retain shared button state and replace local controls',()=>{
+  const button=enabled=>{const bytes=new Uint8Array(16);viewOf(bytes).setUint16(0,enabled?32768:0,true);return bytes;};
+  const bank=(id,buttons)=>({id,resources:{BUTN:buttons},bundles:{},images:{}});
+  const engine=new PlayEngine(new Map([[99,bank(99,{65537:button(true),65538:button(false)})],[1,bank(1,{65539:button(true)})],[2,bank(2,{65540:button(true)})]]));
+  engine.activate(99);engine.hostCall(35012,[1]);engine.hostCall(35011,[2]);
+  engine.activate(1);assert.deepEqual([...engine.buttons],[2,3]);
+  engine.activate(2);assert.deepEqual([...engine.buttons],[2,4]);
+  engine.activate(99);assert.deepEqual([...engine.buttons],[1]);
+});
+
+test('a timer cancelled by an earlier callback cannot run from the tick snapshot',()=>{
+  const engine=new PlayEngine(new Map()),calls=[];engine.event=()=>0;
+  engine.vm.call=script=>{calls.push(script);engine.timers.clear();};
+  engine.hostCall(35019,[1,1,101]);engine.hostCall(35019,[2,1,102]);
+  engine.tick();assert.deepEqual(calls,[101]);
+});
+
+test('an animation callback that clears the screen cancels remaining channels and animations',()=>{
+  const engine=new PlayEngine(new Map()),calls=[];
+  engine.event=id=>{if(id>=100)calls.push(id);if(id===101)engine.animations.clear();};
+  const animation=()=>{const bytes=new Uint8Array(4),data=new DataView(bytes.buffer);data.setUint16(0,101,true);data.setUint16(2,102,true);return {bytes,data,pc:0,remaining:5,channels:[{type:1},{type:1}]};};
+  engine.animations.set(1,animation());engine.animations.set(2,animation());
+  engine.tick();assert.deepEqual(calls,[101]);
+});
 
 test('sprite movement uses relative deltas for the persistent instance',()=>{
   const engine=new PlayEngine(new Map());
