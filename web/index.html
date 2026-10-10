@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JumpStart Preschool · browser port</title>
+<style>
+body{margin:0;background:#171b24;color:#eceef4;font:16px system-ui;text-align:center}main{max-width:960px;margin:30px auto;padding:0 16px}h1{font-size:24px}p{color:#bfc6d4}.stage{position:relative;width:100%;max-width:640px;aspect-ratio:4/3;margin:24px auto;background:#000;box-shadow:0 12px 50px #0008}canvas,video{width:100%;height:100%;image-rendering:pixelated}video{position:absolute;inset:0;object-fit:contain;display:none}button,select{font:inherit;padding:8px 14px;border:1px solid #64718a;border-radius:5px;background:#2c374b;color:white;cursor:pointer}button:disabled{opacity:.5}#status{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px}details{text-align:left;max-width:640px;margin:auto}pre{overflow:auto;font-size:12px}a{color:#a5c5ff}
+</style>
+<style>canvas{touch-action:none}</style>
+<main><h1>JumpStart Preschool (1999)</h1><p>Enter your name, open the school door, and choose an activity in the classroom.</p>
+<button id="start" disabled>Loading game resources…</button>
+<button id="classroom" hidden>Return to classroom</button>
+<button id="skip" hidden>Skip opening movie</button>
+<div class="stage"><canvas id="game" width="640" height="480" tabindex="0" aria-label="JumpStart Preschool game"></canvas><video id="movie" playsinline></video></div>
+<p id="status" role="status">Loading…</p>
+<details><summary>Development controls</summary><p>Loading a library directly bypasses the setup performed by classroom controls. Use the classroom for normal play.</p><select id="bank"></select> <button id="load">Load library</button><pre id="trace"></pre></details>
+</main><script type="module" src="app.js"></script>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "jumpstart-preschool-browser",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "python3 tools/serve.py",
+    "build": "python3 tools/build_assets.py && python3 tools/build_fonts.py && python3 tools/build_movies.py",
+    "test": "node --test tests/*.test.mjs && python3 tests/resources_test.py",
+    "test:browser": "node tools/browser_check.mjs",
+    "test:rooms": "node tools/browser_rooms.mjs",
+    "test:sorting": "node tools/browser_sorting.mjs",
+    "test:smoke": "node tools/scenarios.mjs"
+  },
+  "devDependencies": {"playwright": "^1.56.1"}
+}

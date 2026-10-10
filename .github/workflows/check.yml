@@ -1,0 +1,13 @@
+name: Source checks
+on: [push, pull_request]
+jobs:
+  runtime:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm test
+      - run: python3 -m py_compile tools/resources.py tools/build_assets.py tools/build_fonts.py tools/build_movies.py tools/serve.py

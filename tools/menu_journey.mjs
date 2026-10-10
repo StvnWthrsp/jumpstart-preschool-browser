@@ -1,0 +1,12 @@
+import {chromium} from 'playwright';
+const browser=await chromium.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
+const page=await browser.newPage({viewport:{width:1000,height:850}});
+await page.goto('http://127.0.0.1:8099');await page.waitForFunction(()=>!document.querySelector('#start').disabled,{timeout:60000});
+await page.locator('#start').click();
+const advance=async n=>page.evaluate(n=>{for(let i=0;i<n;i++){engine.vm.instructions=0;engine.tick();if(engine.movie){const m=engine.movie;document.querySelector('#movie').pause();document.querySelector('#movie').style.display='none';document.querySelector('#skip').hidden=true;engine.movie=0;engine.event(31,[m]);}}},n);
+await advance(100);await page.locator('#game').click({position:{x:260,y:150}});await page.locator('#game').pressSequentially('Browser tester');await page.locator('#game').press('Enter');await advance(200);
+console.log('School candidates',await page.evaluate(()=>[...engine.sprites.values()].filter(s=>[1072,1102,1290,1081,1079].includes(s.id))));
+await page.locator('#game').click({position:{x:Number(process.argv[2]||330),y:Number(process.argv[3]||260)}});console.log('Click',await page.evaluate(()=>engine.trace.slice(-20)));await advance(100);await page.waitForTimeout(1000);
+await page.screenshot({path:'artifacts/activity-menu.png'});
+console.log(await page.evaluate(()=>({bank:engine.bank.id,buttons:[...engine.buttons],sprites:[...engine.sprites.values()].map(s=>({id:s.id,x:s.x,y:s.y,width:s.width,height:s.height})),trace:engine.trace.filter(e=>[110,35013,35014,148].includes(e.id))})));
+await browser.close();
