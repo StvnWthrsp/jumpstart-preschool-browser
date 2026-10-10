@@ -220,7 +220,7 @@ export class PlayEngine {
         const token=anim.data.getUint16(anim.pc,true);anim.pc+=2;
         if(token===65535){channel.wait=anim.data.getUint16(anim.pc,true)-1;anim.pc+=2;continue;}
         if(channel.type===4) {
-          if(channel.image)this.remove(channel.image,id);
+          if(channel.image&&channel.image!==token)this.remove(channel.image,id);
           channel.image=token;
           if(token) {
             const scale=anim.scale??1,refX=anim.refX||0,refY=anim.refY||0;

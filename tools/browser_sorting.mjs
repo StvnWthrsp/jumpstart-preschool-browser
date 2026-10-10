@@ -10,7 +10,7 @@ async function click(x,y){await page.locator('#game').click({position:{x,y}});}
 try{
   await page.goto('http://127.0.0.1:8099');await page.waitForFunction(()=>!document.querySelector('#start').disabled,{timeout:60000});
   await page.locator('#start').click();await advance(100);await click(260,150);
-  await page.locator('#game').pressSequentially('Sorting test');await page.locator('#game').press('Enter');await advance(200);
+  await page.keyboard.type('Sorting test');await page.keyboard.press('Enter');await advance(200);
   await page.waitForTimeout(400);await click(330,260);await advance(100);
   await page.waitForTimeout(400);await click(615,399);await advance(1000);
   assert.equal(await page.evaluate(()=>engine.bank.id),5);

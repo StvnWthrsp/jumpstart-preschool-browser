@@ -42,6 +42,8 @@ ANIM contains channel count, frame count and six-byte channel descriptors, follo
 
 Native `0x4158a0` removes a matching bitmap when its instance is zero or matches the requested animation instance. The persistent instance must be removed too; otherwise old character faces and limbs remain over later frames. Native `0x413650` takes five arguments for event 35024: bitmap, instance, x, y, z. Native `0x413900` restores save blocks using 16-bit word offsets/counts. Saved blocks are string-handle roots in the replacement VM.
 
+Native `0x401d70` retains an existing bitmap when the next token repeats its ID. Removing and reinserting that sprite changes the relative order of equal-depth layers and can produce flickering. The browser renderer also waits for all bitmaps, restoration masks, font atlases and custom-cursor assets required by a frame before clearing the displayed canvas. Canvas pointer-down explicitly restores keyboard focus because preventing its default action suppresses the browser's normal focusing behavior.
+
 BUTN supplies enabled flags, priority and rect/ellipse/polygon/sprite shapes. Native sprite hit testing checks the foremost nontransparent pixel before matching a sprite-based button. Pointer events are 10 down, 11 up, 12 double-click, 13 right-click, and 14/15/16 hover enter/leave/over. Keyboard events are 5 key-down, 6 character and 7 key-up. Event 23 is a printing page callback.
 
 ## Compatibility work remaining

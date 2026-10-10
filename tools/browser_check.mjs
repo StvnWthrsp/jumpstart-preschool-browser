@@ -10,7 +10,7 @@ async function advance(count){await page.evaluate(count=>{for(let i=0;i<count;i+
 async function click(x,y){await page.locator('#game').click({position:{x,y}});}
 try{
   await ready();await page.locator('#start').click();await advance(100);
-  await click(260,150);await page.locator('#game').pressSequentially('Browser test');await page.locator('#game').press('Enter');await advance(200);
+  await click(260,150);await page.keyboard.type('Browser test');await page.keyboard.press('Enter');await advance(200);
   assert.equal(await page.evaluate(()=>engine.bank.id),11);
   await page.waitForTimeout(400);await click(330,260);await advance(100);
   assert.equal(await page.evaluate(()=>engine.bank.id),12);

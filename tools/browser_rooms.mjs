@@ -12,8 +12,8 @@ for(const [id,x,y] of [[1,411,144],[2,475,400],[3,127,180],[4,85,378],[5,615,399
     await page.evaluate(()=>localStorage.removeItem('preschool-profiles'));
     await page.locator('#start').click();await advance(100);
     await page.locator('#game').click({position:{x:260,y:150}});
-    await page.locator('#game').pressSequentially('Browser tester');
-    await page.locator('#game').press('Enter');await advance(200);
+    await page.keyboard.type('Browser tester');
+    await page.keyboard.press('Enter');await advance(200);
     await page.waitForTimeout(250);
     await page.locator('#game').click({position:{x:330,y:260}});await advance(100);await page.waitForTimeout(250);
     if(await page.evaluate(()=>engine.bank.id)!==12)throw new Error('Original school door did not reach the classroom');

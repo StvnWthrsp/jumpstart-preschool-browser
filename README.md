@@ -23,10 +23,13 @@ npm test
 npm run test:rooms
 npm run test:browser
 npm run test:sorting
+npm run test:regressions
 python3 tools/disassemble.py 11 1000
 ```
 
 The browser check uses `/usr/bin/chromium` through Playwright and expects the local server to be running. Captures and diagnostic reports live in `artifacts/`.
+
+The regression check creates a new player alongside an existing profile using ordinary keyboard input after a mouse click. It also delays PNG requests in Paper Activities and verifies that incomplete replacement frames cannot clear Pierre or other visible assets. The renderer retains the last complete frame while bitmaps and font atlases load.
 
 ## Current status
 

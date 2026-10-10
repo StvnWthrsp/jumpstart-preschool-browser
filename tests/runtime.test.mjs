@@ -99,3 +99,13 @@ test('saved game memory keeps its string handles alive',()=>{
   vm.write(500,handle);engine.hostCall(35017,[1]);vm.write(500,0);vm.collectStrings();
   engine.hostCall(35018,[1,0,0]);assert.equal(vm.text(vm.read(500)),'Saved player');
 });
+
+test('repeated animation images retain their order among overlapping layers',()=>{
+  const bank={id:99,bank:'test',images:{42:{width:1,height:1},43:{width:1,height:1}},resources:{},bundles:{}};
+  const engine=new PlayEngine(new Map([[99,bank]])),bytes=new Uint8Array(24),data=new DataView(bytes.buffer);
+  data.setUint16(0,42,true);data.setUint16(6,42,true);
+  engine.animations.set(8,{id:8,bytes,data,pc:0,x:0,y:0,z:10,remaining:5,channels:[{type:4,mode:0,end:0,wait:0,image:0}]});
+  engine.tick();engine.sprite(43,8,0,0,10);
+  assert.deepEqual([...engine.sprites.keys()],['8:42','8:43']);
+  engine.tick();assert.deepEqual([...engine.sprites.keys()],['8:42','8:43']);
+});
