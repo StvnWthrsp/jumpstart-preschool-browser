@@ -140,10 +140,10 @@ export class PlayEngine {
       case 35002:return this.stopAnimation(a[0]);
       case 35004:case 35019:this.timers.set(a[0],{interval:Math.max(1,Math.round(a[1]/12.5)),next:this.tickCount+Math.max(1,Math.round(a[1]/12.5)),script:a[2],once:id===35019});return 0;
       case 35005:this.timers.delete(a[0]);return 0;
-      case 35006:this.cursor=a[0];this.cursorHotspot={x:a[1]||0,y:a[2]||0};return 0;
+      case 35006:{const previous=this.cursor||0;this.cursor=a[0];this.cursorHotspot={x:a[1]||0,y:a[2]||0};return previous;}
       case 35007:return this.cursor||0;
-      case 35008:this.cursorHidden=true;return 0;
-      case 35009:this.cursorHidden=false;return 0;
+      case 35008:this.cursorHidden=false;return 0;
+      case 35009:this.cursorHidden=true;return 0;
       case 35011:this.buttons.add(a[0]);return 1;
       case 35012:this.buttons.delete(a[0]);return 1;
       case 35013:this.queue.push(()=>this.activate(a[1]));return 1;

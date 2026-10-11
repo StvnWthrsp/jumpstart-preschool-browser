@@ -5,6 +5,16 @@ import {PlayEngine,viewOf} from '../web/engine.js';
 import {Profiles} from '../web/profiles.js';
 import {decodeADP} from '../web/audio.js';
 
+test('cursor selection returns the previous bitmap and show/hide retain its hotspot',()=>{
+  const engine=new PlayEngine(new Map());
+  assert.equal(engine.hostCall(35006,[42,12,18]),0);
+  engine.hostCall(35009,[]);assert.equal(engine.cursorHidden,true);
+  engine.hostCall(35008,[]);assert.equal(engine.cursorHidden,false);
+  assert.deepEqual(engine.cursorHotspot,{x:12,y:18});
+  assert.equal(engine.hostCall(35006,[43,3,4]),42);
+  assert.equal(engine.hostCall(35007,[]),43);
+});
+
 test('activity transitions retain shared button state and replace local controls',()=>{
   const button=enabled=>{const bytes=new Uint8Array(16);viewOf(bytes).setUint16(0,enabled?32768:0,true);return bytes;};
   const bank=(id,buttons)=>({id,resources:{BUTN:buttons},bundles:{},images:{}});

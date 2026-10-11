@@ -25,6 +25,7 @@ npm run test:browser
 npm run test:sorting
 npm run test:regressions
 npm run test:toolbar
+npm run test:cursor
 python3 tools/disassemble.py 11 1000
 ```
 
@@ -33,6 +34,8 @@ The browser check uses `/usr/bin/chromium` through Playwright and expects the lo
 The regression check creates a new player alongside an existing profile using ordinary keyboard input after a mouse click. It also delays PNG requests in Paper Activities and verifies that incomplete replacement frames cannot clear Pierre or other visible assets. The renderer retains the last complete frame while bitmaps and font atlases load.
 
 The toolbar check clicks all nine bottom blocks in the classroom and each of its ten activities. It verifies the enabled shared controls receive their intended button events, activity back blocks return to the classroom, and callbacks continue without losing the current resource library. Shared button state survives activity changes, including the startup script's disabling of an obsolete toolbar.
+
+The cursor check verifies the sign-in pointer and actual carried-item pixels in sorting and kitchen. It moves the pointer to two locations and compares the canvas against the original bitmap composited at its hotspot. Carried items update on pointer movement; cursor show/hide follows the original engine commands.
 
 ## Current status
 

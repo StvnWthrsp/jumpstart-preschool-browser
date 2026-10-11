@@ -11,6 +11,7 @@
     "test:sorting": "node tools/browser_sorting.mjs",
     "test:regressions": "node tools/browser_regressions.mjs",
     "test:toolbar": "node tools/browser_toolbar.mjs",
+    "test:cursor": "node tools/browser_cursor.mjs",
     "test:smoke": "node tools/scenarios.mjs"
   },
   "devDependencies": {"playwright": "^1.56.1"}
