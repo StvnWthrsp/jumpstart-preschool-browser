@@ -4,10 +4,10 @@ A browser port of **JumpStart Preschool (1999)**. A replacement JavaScript engin
 
 ## Run the server
 
-Requires Python 3. Converted runtime assets are included; no ISO, build step, Windows installation or npm dependencies are needed to play.
+Requires access to this private GitHub repository and Python 3. Converted runtime assets are included; no ISO, build step, Windows installation or npm dependencies are needed to play.
 
 ```sh
-git clone git@github.com:StvnWthrsp/jumpstart-preschool-browser.git
+git clone https://github.com/StvnWthrsp/jumpstart-preschool-browser.git
 cd jumpstart-preschool-browser
 python3 tools/serve.py
 ```
