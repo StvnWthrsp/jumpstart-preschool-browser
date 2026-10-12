@@ -5,7 +5,6 @@ tools/engine.asm
 tools/rea-analysis.json
 tools/*.log
 tools/*.zip
-web/assets/
 node_modules/
 __pycache__/
 artifacts/

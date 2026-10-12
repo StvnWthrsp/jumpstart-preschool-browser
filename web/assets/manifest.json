@@ -1,0 +1,396 @@
+{
+  "banks": [
+    {
+      "id": 1,
+      "bank": "cub001wb",
+      "background": 66598,
+      "counts": {
+        "BMAP": 148,
+        "WAVE": 12,
+        "BUTN": 2,
+        "ANIM": 225,
+        "EVNT": 36,
+        "SCRP": 68,
+        "DTAB": 16,
+        "STR": 2,
+        "STBL": 4,
+        "VARI": 0,
+        "AAA1": 0,
+        "CTBL": 1
+      }
+    },
+    {
+      "id": 2,
+      "bank": "cub002pa",
+      "background": 66633,
+      "counts": {
+        "BMAP": 193,
+        "WAVE": 6,
+        "CTBL": 1,
+        "BUTN": 16,
+        "ANIM": 236,
+        "EVNT": 30,
+        "SCRP": 72,
+        "DTAB": 19,
+        "STR": 2,
+        "STBL": 4,
+        "VARI": 0,
+        "AAA1": 0
+      }
+    },
+    {
+      "id": 3,
+      "bank": "cub003ea",
+      "background": 66563,
+      "counts": {
+        "BMAP": 136,
+        "WAVE": 4,
+        "CTBL": 1,
+        "BUTN": 6,
+        "ANIM": 172,
+        "EVNT": 28,
+        "SCRP": 59,
+        "DTAB": 13,
+        "STR": 5,
+        "STBL": 4,
+        "VARI": 0,
+        "AAA1": 0,
+        "UFI1": 2
+      }
+    },
+    {
+      "id": 4,
+      "bank": "cub004pq",
+      "background": 66828,
+      "counts": {
+        "BMAP": 123,
+        "WAVE": 12,
+        "CTBL": 1,
+        "BUTN": 13,
+        "ANIM": 279,
+        "EVNT": 32,
+        "SCRP": 69,
+        "DTAB": 28,
+        "STR": 5,
+        "STBL": 4,
+        "VARI": 0,
+        "AAA1": 0,
+        "UFI1": 1
+      }
+    },
+    {
+      "id": 5,
+      "bank": "cub005ab",
+      "background": 66633,
+      "counts": {
+        "BMAP": 194,
+        "WAVE": 6,
+        "CTBL": 1,
+        "BUTN": 15,
+        "ANIM": 125,
+        "EVNT": 33,
+        "SCRP": 68,
+        "DTAB": 20,
+        "STR": 2,
+        "STBL": 4,
+        "VARI": 0,
+        "AAA1": 0
+      }
+    },
+    {
+      "id": 6,
+      "bank": "cub006bs",
+      "background": 66820,
+      "counts": {
+        "BMAP": 170,
+        "WAVE": 5,
+        "CTBL": 1,
+        "BUTN": 13,
+        "ANIM": 182,
+        "EVNT": 40,
+        "SCRP": 71,
+        "DTAB": 43,
+        "STR": 20,
+        "STBL": 12,
+        "VARI": 0,
+        "AAA1": 0,
+        "UFI1": 2
+      }
+    },
+    {
+      "id": 7,
+      "bank": "cub007mh",
+      "background": 66705,
+      "counts": {
+        "BMAP": 106,
+        "WAVE": 5,
+        "CTBL": 1,
+        "BUTN": 11,
+        "ANIM": 104,
+        "EVNT": 32,
+        "SCRP": 68,
+        "DTAB": 14,
+        "STR": 2,
+        "STBL": 4,
+        "VARI": 0,
+        "AAA1": 0
+      }
+    },
+    {
+      "id": 8,
+      "bank": "cub008pp",
+      "background": 66919,
+      "counts": {
+        "BMAP": 199,
+        "WAVE": 18,
+        "CTBL": 1,
+        "BUTN": 18,
+        "ANIM": 98,
+        "EVNT": 43,
+        "SCRP": 76,
+        "DTAB": 9,
+        "STR": 80,
+        "STBL": 4,
+        "VARI": 0,
+        "AAA1": 0
+      }
+    },
+    {
+      "id": 9,
+      "bank": "cub009ki",
+      "background": 66725,
+      "counts": {
+        "BMAP": 339,
+        "WAVE": 4,
+        "CTBL": 1,
+        "BUTN": 31,
+        "ANIM": 159,
+        "SCRP": 62,
+        "DTAB": 72,
+        "STR": 2,
+        "STBL": 4,
+        "AAA1": 0,
+        "VARI": 0,
+        "EVNT": 28
+      }
+    },
+    {
+      "id": 10,
+      "bank": "cub010bn",
+      "background": 66653,
+      "counts": {
+        "BMAP": 308,
+        "WAVE": 9,
+        "CTBL": 1,
+        "BUTN": 15,
+        "ANIM": 142,
+        "EVNT": 68,
+        "SCRP": 115,
+        "DTAB": 28,
+        "STR": 12,
+        "STBL": 5,
+        "VARI": 0,
+        "AAA1": 0,
+        "UFI1": 1
+      }
+    },
+    {
+      "id": 11,
+      "bank": "cub011se",
+      "background": 66636,
+      "counts": {
+        "BMAP": 116,
+        "WAVE": 5,
+        "CTBL": 1,
+        "BUTN": 28,
+        "ANIM": 49,
+        "EVNT": 35,
+        "SCRP": 67,
+        "DTAB": 7,
+        "STR": 2,
+        "STBL": 4,
+        "VARI": 0,
+        "AAA1": 0
+      }
+    },
+    {
+      "id": 12,
+      "bank": "cub012si",
+      "background": 69162,
+      "counts": {
+        "BMAP": 413,
+        "WAVE": 27,
+        "CTBL": 1,
+        "BUTN": 30,
+        "ANIM": 183,
+        "EVNT": 49,
+        "SCRP": 85,
+        "DTAB": 14,
+        "STR": 6,
+        "STBL": 4,
+        "VARI": 0,
+        "AAA1": 0,
+        "UFI1": 7
+      }
+    },
+    {
+      "id": 14,
+      "bank": "cub014",
+      "background": 67106,
+      "counts": {
+        "BMAP": 42,
+        "CTBL": 1,
+        "ANIM": 7,
+        "EVNT": 30,
+        "SCRP": 30,
+        "DTAB": 2,
+        "STBL": 6,
+        "VARI": 0,
+        "STR": 29,
+        "WAVE": 0,
+        "UFI1": 6,
+        "BUTN": 1
+      }
+    },
+    {
+      "id": 99,
+      "bank": "cub099",
+      "background": 96230,
+      "counts": {
+        "BMAP": 236,
+        "CTBL": 1,
+        "EVNT": 119,
+        "SCRP": 163,
+        "BUTN": 21,
+        "WAVE": 10,
+        "ANIM": 59,
+        "STR": 103,
+        "DTAB": 15,
+        "STBL": 2,
+        "UFI1": 5,
+        "VARI": 3
+      }
+    },
+    {
+      "id": 200,
+      "bank": "cub200si",
+      "background": 66581,
+      "counts": {
+        "BMAP": 25,
+        "WAVE": 10,
+        "CTBL": 1,
+        "BUTN": 9,
+        "ANIM": 67,
+        "EVNT": 30,
+        "SCRP": 69,
+        "DTAB": 10,
+        "STBL": 4,
+        "STR": 13,
+        "UFI1": 3,
+        "VARI": 0,
+        "AAA1": 0
+      }
+    },
+    {
+      "id": 201,
+      "bank": "cub201rc",
+      "background": null,
+      "counts": {
+        "BMAP": 150,
+        "CTBL": 1,
+        "EVNT": 17,
+        "SCRP": 52,
+        "ANIM": 30,
+        "BUTN": 28,
+        "DTAB": 16,
+        "UFI1": 5,
+        "STR": 19,
+        "VARI": 0,
+        "WAVE": 6
+      }
+    },
+    {
+      "id": 202,
+      "bank": "cub202tm",
+      "background": null,
+      "counts": {
+        "BMAP": 175,
+        "CTBL": 0,
+        "EVNT": 22,
+        "SCRP": 38,
+        "ANIM": 196,
+        "BUTN": 29,
+        "DTAB": 13,
+        "STR": 4,
+        "UFI1": 4,
+        "WAVE": 1,
+        "VARI": 0
+      }
+    },
+    {
+      "id": 203,
+      "bank": "cub203ps",
+      "background": 80820,
+      "counts": {
+        "BMAP": 35,
+        "CTBL": 1,
+        "EVNT": 10,
+        "SCRP": 16,
+        "ANIM": 33,
+        "BUTN": 11,
+        "DTAB": 4,
+        "STR": 11,
+        "VARI": 0,
+        "WAVE": 5
+      }
+    },
+    {
+      "id": 204,
+      "bank": "cub204rd",
+      "background": 86920,
+      "counts": {
+        "BMAP": 99,
+        "CTBL": 1,
+        "EVNT": 10,
+        "SCRP": 19,
+        "ANIM": 48,
+        "BUTN": 21,
+        "DTAB": 4,
+        "STBL": 5,
+        "WAVE": 3,
+        "VARI": 0,
+        "AAA1": 0
+      }
+    },
+    {
+      "id": 301,
+      "bank": "cub301",
+      "background": null,
+      "counts": {
+        "EVNT": 3,
+        "WAVE": 0,
+        "ANIM": 3,
+        "SCRP": 3,
+        "DTAB": 1,
+        "VARI": 0,
+        "CTBL": 1
+      }
+    }
+  ],
+  "counts": {
+    "nested_BMAP": 13392,
+    "BMAP": 3207,
+    "WAVE": 148,
+    "BUTN": 318,
+    "ANIM": 2397,
+    "EVNT": 695,
+    "SCRP": 1270,
+    "DTAB": 348,
+    "STR": 319,
+    "STBL": 74,
+    "VARI": 3,
+    "AAA1": 0,
+    "CTBL": 19,
+    "UFI1": 36
+  }
+}

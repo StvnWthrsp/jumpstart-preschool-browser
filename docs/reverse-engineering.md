@@ -58,4 +58,4 @@ Implemented services include child-animation parent flags, animation/sprite scal
 
 Remaining fidelity includes exact resource lifetime and library teardown, timer rounding, STBL remapping/blending, viewport scrolling, palette remapping beyond global fades, older text services and movie-frame callbacks. Printing is inactive. Events 35044/35045/35046/35053/35054/35056/35059/35076 and several older font calls have provisional results. Native Windows reference captures and completion at every difficulty remain unverified.
 
-Future preservation validation should complete every exercise at each difficulty, check carry cancellation and parent reports, and compare with the Windows program under a local compatibility environment. Keep extracted assets and native decompiler output local.
+Future preservation validation should complete every exercise at each difficulty, check carry cancellation and parent reports, and compare with the Windows program under a local compatibility environment. Converted runtime assets are included in the private repository for reproducible playback. The source ISO, raw disc extraction and native decompiler output remain excluded.
