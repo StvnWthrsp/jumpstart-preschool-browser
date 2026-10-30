@@ -4,7 +4,7 @@ A browser port of **JumpStart Preschool (1999)**. A replacement JavaScript engin
 
 ## Run the server
 
-Requires access to this private GitHub repository and Python 3. Converted runtime assets are included; no ISO, build step, Windows installation or npm dependencies are needed to play.
+Requires Python 3. Converted runtime assets are included; no ISO, build step, Windows installation or npm dependencies are needed to play.
 
 ```sh
 git clone https://github.com/StvnWthrsp/jumpstart-preschool-browser.git
@@ -60,4 +60,4 @@ npm run build
 
 The build regenerates resource metadata, PNGs, font atlases and WebM movies. Delete `web/assets/movies/` first if you need to reconvert existing movies. The ISO, raw disc extraction, research tool installations and native decompiler exports are not included. REA/Ghidra are research tools, not runtime requirements.
 
-This private repository includes converted original game assets for reproducible playback. Research evidence and remaining engine work are documented in [reverse-engineering notes](docs/reverse-engineering.md).
+This repository includes converted original game assets for reproducible playback. Research evidence and remaining engine work are documented in [reverse-engineering notes](docs/reverse-engineering.md).
